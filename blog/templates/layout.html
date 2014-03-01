@@ -4,20 +4,45 @@
     <title>Flask Blog</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('static', filename='tinymce/tinymce.min.js') }}"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea"
+        });
+    </script>
 </head>
 <body>
-<div class="container">
-      <div class="page-header">
-        <h1>Flask Blog</h1>
-      </div>
- 
-    {% block content %}
- 
-    {% endblock %}
- 
-    <div class="modal-footer">
-        <h4>&copy; BlueDream</h4>
+    <div class="container">
+        <div class="page-header">
+            <h1>Flask Blog</h1>
+        </div>
+
+        <header>
+            <div class="navbar">
+                <div class="navbar-inner">
+
+                    <ul class="nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        {% if 'email' in session %}
+
+                        <li><a class='active' href="{{ url_for('profile') }}">Profile</a></li>
+                        <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                        <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <div class="modal-footer">
+            <h4>&copy; BlueDream</h4>
+        </div>
     </div>
-</div>
 </body>
 </html>

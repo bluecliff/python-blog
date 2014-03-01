@@ -1,12 +1,24 @@
- .audio {
- width: 100%;
- }
- .modal-footer {
- text-align: center;
- }
- .form-audio {
- margin-left: 350px;
- }
- .page-header {
- text-align: center;
- }
+.modal-footer {
+    text-align: center;
+}
+
+.form {
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.page-header {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 98%;
+}
+
+textarea {
+    width: 98%;
+    height: 300px;
+}
+input[type="password"] {
+    width: 100%;
+}
